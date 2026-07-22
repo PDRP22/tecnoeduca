@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen del Libro - TecnoEduca</title>
+    <style>
+        :root {
+            --azul-oscuro: #001f3f;
+            --azul-medio: #002855;
+            --azul-boton: #0056b3;
+            --naranja-utic: #ff6600;
+            --blanco-suave: #f1f5f9;
+            --celeste-decorativo: #38bdf8;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--azul-oscuro); 
+            color: #ffffff; 
+            margin: 0; 
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+	.contenedor-logos-cabecera {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            width: 100%;                  
+            max-width: 1200px;            
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 30px 40px 0 40px;   
+        }
+
+        .logo-lateral {
+            height: 85px;            
+            width: 160px;              
+            object-fit: contain;          
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+        }
+
+        .main-container {
+            max-width: 900px;
+            width: 90%;
+            padding: 40px 0 30px 0;
+        }
+
+        .header-navegacion {
+ 	    text-align: center;
+    	    margin-bottom: 30px;
+	    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ 	    padding-bottom: 20px;
+	}
+
+
+        h1 { 
+            font-size: 32px; 
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .bloque-presentacion-libro {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .icono-libro-grande {
+    width: 230px;
+    height: 170px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 40, 85, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    overflow: hidden;
+}
+
+.icono-libro-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        .detalles-libro h2 {
+            font-size: 24px;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .detalles-libro p {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .metadatos-libro {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--celeste-decorativo);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .seccion-titulo {
+            font-size: 26px;
+            text-align: center;
+            margin: 50px 0 15px 0;
+            font-weight: 700;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .grid-capitulos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card-capitulo {
+            background-color: var(--azul-medio);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s ease;
+        }
+
+        .card-capitulo:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .card-capitulo h3 {
+            font-size: 18px;
+            color: #e0f2fe;
+            margin-top: 0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-capitulo p {
+            font-size: 15px;
+            line-height: 1.7;
+            text-align: justify;
+            color: var(--blanco-suave);
+            margin: 0 0 15px 0;
+        }
+
+        .card-capitulo ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #cbd5e1;
+        }
+
+        .card-capitulo li {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 6px;
+        }
+
+        .card-capitulo li:last-child {
+            margin-bottom: 0;
+        }
+
+        .creditos-grupo {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            letter-spacing: 1px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .bloque-presentacion-libro {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .metadatos-libro {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .header-navegacion {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">FACULTAD TECNOLÓGICA INTERCONTINENTAL &bull; UTIC</div>
+
+	 <div class="contenedor-logos-cabecera">
+        <img src="logo-utic.webp" alt="Logo UTIC" class="logo-lateral">
+        <img src="tecnoeduca.jpeg" alt="Logo Grupo" class="logo-lateral">
+    </div>
+
+    <div class="main-container">
+        
+        <div class="header-navegacion">
+            <h1>Análisis del libro</h1>
+        </div>
+
+        <div class="bloque-presentacion-libro">
+            <div class="icono-libro-grande">
+    <img src="enciclopedia.jpg" alt="Enciclopedia en la hoguera">
+</div>
+            <div class="detalles-libro">
+                <h2>Enciclopedia en la hoguera</h2>
+                <p>La historia gira en torno a un misterio urbano lleno de secretos, libros raros y personajes bastante extraños. El protagonista es un chico común que de la noche a la mañana se termina metiendo en una aventura peligrosa.</p>
+                <div class="metadatos-libro">
+                    <span>✍️ Autor: Pablo De Santis</span>
+                    <span>•</span>
+                    <span>📅 Año: 1995</span>
+                    <span>•</span>
+                    <span>🏷️ Categoría: Novela</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-titulo">Capítulos e Ideas Clave</div>
+
+        <div class="grid-capitulos">
+            
+            <div class="card-capitulo">
+                <h3>📖 Capítulo 1: Introducción a la Materia</h3>
+                <p>Aquí podés redactar el resumen de los conceptos iniciales que aborda el primer bloque del libro. Explicá las tesis principales del autor de manera fluida y concisa.</p>
+                <ul>
+                    <li><strong>Punto clave 1:</strong> Concepto relevante analizado en la lectura.</li>
+                    <li><strong>Punto clave 2:</strong> Segunda idea o debate propuesto por el autor.</li>
+                    <li><strong>Punto clave 3:</strong> Conclusión parcial de este capítulo.</li>
+                </ul>
+            </div>
+
+            <div class="card-capitulo">
+                <h3>📖 Capítulo 2: El Núcleo del Análisis</h3>
+                <p>Espacio reservado para el nudo del libro. Añadí la información sobre las metodologías, las problemáticas centrales planteadas y las soluciones teóricas que ofrece la obra.</p>
+                <ul>
+                    <li><strong>Punto clave 1:</strong> Argumento fuerte del autor sobre el sistema.</li>
+                    <li><strong>Punto clave 2:</strong> Evidencias, ejemplos o casos prácticos mencionados.</li>
+                </ul>
+            </div>
+
+            <div class="card-capitulo">
+                <h3>📖 Capítulo 3: Conclusiones y Futuro</h3>
+                <p>Escribí el desenlace o las proyecciones finales que el libro propone de cara a las tecnologías y el aprendizaje profesional continuo.</p>
+            </div>
+
+        </div>
+
+        <div class="seccion-titulo">Reflexión Final del Grupo</div>
+        <div class="card-capitulo" style="background-color: rgba(255, 255, 255, 0.02);">
+            <p>El libro trata sobre una novela de misterio rápida y entretenida que nos enseñó sobre el valor de los libros, de los conocimientos, la lectura, la memoria y la busqueda de la verdad, y del peligro de que el conocimiento sea destruido y manipulado, lo cual como grupo nos gustó mucho porque nos enseña el valor de todo eso en un caso hipotetico muy entretenida e interesante y, sobre todo, atrapadora.</p>
+        </div>
+
+        <div class="creditos-grupo">by TecnoEduca</div>
+    </div>
+
+</body>
+</html>

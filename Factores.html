@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimiento Académico - TecnoEduca</title>
+    <style>
+        :root {
+            --azul-oscuro: #001f3f;
+            --azul-medio: #002855;
+            --azul-boton: #0056b3;
+            --naranja-utic: #ff6600;
+            --blanco-suave: #f1f5f9;
+            --celeste-decorativo: #38bdf8;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--azul-oscuro); 
+            color: #ffffff; 
+            margin: 0; 
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+	.contenedor-logos-cabecera {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            width: 100%;                  
+            max-width: 1200px;           
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 30px 40px 0 40px;    
+        }
+
+        .logo-lateral {
+            height: 85px;                
+            width: 160px;                
+            object-fit: contain;          
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+        }
+
+        .main-container {
+            max-width: 900px;
+            width: 90%;
+            padding: 40px 0 30px 0;
+        }
+
+        .header-navegacion {
+ 	   text-align: center;
+  	   margin-bottom: 30px;
+ 	   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	    padding-bottom: 20px;
+	}
+
+        h1 { 
+            font-size: 32px; 
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .seccion-titulo {
+            font-size: 26px;
+            text-align: center; 
+            margin: 50px 0 15px 0;
+            font-weight: 700;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .seccion-descripcion {
+            color: #cbd5e1;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .grid-factores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .grid-factores .card:nth-child(5):last-child {
+            grid-column: span 2;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+	.grid-factores .card:nth-child(3):last-child {
+    grid-column: span 2;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+        .grid-tecnicas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--azul-medio);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--celeste-decorativo);
+        }
+        
+        .card h2 { 
+            font-size: 20px; 
+            color: #e0f2fe; 
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .card p { 
+            font-size: 15px; 
+            line-height: 1.7; 
+            text-align: justify;
+            color: var(--blanco-suave);
+            margin: 0;
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--blanco-suave);
+        }
+
+        .card li {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .creditos-grupo {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            letter-spacing: 1px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+            .grid-tecnicas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-factores, .grid-tecnicas { 
+                grid-template-columns: 1fr; 
+            }
+            .grid-factores .card:nth-child(5):last-child {
+                grid-column: span 1;
+                max-width: 100%;
+            }
+            .header-navegacion {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            .seccion-titulo {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">FACULTAD TECNOLÓGICA INTERCONTINENTAL &bull; UTIC</div>
+
+	 <div class="contenedor-logos-cabecera">
+        <img src="logo-utic.webp" alt="Logo UTIC" class="logo-lateral">
+        <img src="tecnoeduca.jpeg" alt="Logo Grupo" class="logo-lateral">
+    </div>
+
+    <div class="main-container">
+        
+        <div class="header-navegacion">
+            <h1>Rendimiento Académico</h1>
+            
+        </div>
+
+        <div class="seccion-titulo" style="margin-top: 20px;">Factores del rendimiento académico</div>
+        <div class="seccion-descripcion">
+            Elementos fundamentales que influyen de manera directa o indirecta en el desempeño de un estudiante durante su proceso de aprendizaje:
+        </div>
+
+        <div class="grid-factores">
+            <div class="card">
+                <h2>👦🏻 Elementos Personales</h2>
+                <p>El estudiante que duerme bien, se organiza y tiene ganas de aprender, suele tener mejores resultados. Posee motivación para estudiar, es responsable, organizado y tiene confianza en sí mismo.</p>
+            </div>
+            <div class="card">
+                <h2>🧑‍🧑‍🧒‍🧒 Elementos Familiares</h2>
+                <p>Son las condiciones y el apoyo que brinda la familia. Si la familia apoya y motiva de forma constante al estudiante, es mucho más fácil que este logre un buen rendimiento académico.</p>
+            </div>
+            
+            <div class="card">
+                <h2>🏫 Elementos Escolares</h2>
+                <p>Son los factores relacionados con la institución educativa. Contar con una infraestructura óptima, buenos docentes y recursos actualizados facilita el aprendizaje de los alumnos.</p>
+            </div>
+
+            <div class="card">
+                <h2>👩🏼‍🤝‍👨🏻 Elementos Sociales</h2>
+                <p>Son las relaciones con otras personas y el entorno. Los amigos pueden actuar de forma positiva motivando a estudiar, o por el contrario, distraer y afectar negativamente el rendimiento.</p>
+            </div>
+
+            <div class="card">
+                <h2>💸 Elementos Económicos</h2>
+                <p>Son los recursos monetarios disponibles para el estudio. Si se carece de ellos o se debe trabajar excesivas horas, se presentan mayores dificultades para rendir bien debido al desgaste emocional y al estrés laboral.</p>
+            </div>
+        </div>
+
+        <div class="seccion-titulo">Técnicas y hábitos de estudio</div>
+        <div class="seccion-descripcion">
+            Métodos y costumbres estratégicas que ayudan a entender, retener y usar de forma efectiva los conocimientos, evitando el esfuerzo innecesario:
+        </div>
+
+        <div class="grid-tecnicas">
+            <div class="card">
+                <h2>📅 Organización</h2>
+                <ul>
+                    <li>Planificar tiempos de estudio de forma realista.</li>
+                    <li>Mantener un espacio de trabajo ordenado.</li>
+                    <li>Eliminar por completo las distracciones externas.</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>🧠 Procesar Información</h2>
+                <ul>
+                    <li>Subrayar ideas y palabras clave.</li>
+                    <li>Elaborar resúmenes comprensibles.</li>
+                    <li>Ejercer una lectura activa y consciente.</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>🔄 Reposo y Fijación</h2>
+                <ul>
+                    <li>Repasar diariamente los conceptos clave.</li>
+                    <li>Autoevaluarse de forma periódica.</li>
+                    <li>Hacer ejercicios prácticos sin mirar apuntes.</li>
+                    <li>Priorizar un descanso óptimo y buena alimentación.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion-titulo">Motivación y aprendizaje</div>
+        <div class="seccion-descripcion">
+            Es el motor que te hace empezar, seguir y superar dificultades al estudiar, existen diferentes tipos de motivación:
+        </div>
+
+	<div class="grid-factores">
+            <div class="card">
+                <h2>💡 Motivación intrínseca</h2>
+                <p>La mejor y más duradera, estudias por interés propio, curiosidad, o satisfacción de aprender. Ej:Me gusta entender las matemáticas.</p>
+            </div> 
+            <div class="card">
+                <h2>⚠️ Motivación extrínseca</h2>
+                <p>Por recompensas externas o evitar consecuencias. Ej:Aprobar el examen, nota alta, ayuda al principio pero no dura mucho por sí sola.</p>
+            </div>
+</div>
+
+	<div class="seccion-titulo">Como aumentar la motivación</div>
+	 <div class="seccion-descripcion">
+            Si bien la motivación es algo efímero y poco duradero, es un empujon que ayuda mucho, por lo cual mencionaremos buenas maneras para aumentar y mantener la motivación:
+        </div>
+
+	<div class="grid-factores">
+            <div class="card">
+                <h2>🎯 Metas claras y pequeñas</h2>
+                <p>En lugar de "estudiar trigonometría", pon "resolver 5 ejercicios de senos hoy". Al cumplirlas, tu cerebro libera satisfacción.</p>
+            </div>
+
+	<div class="card">
+                <h2>🧭 Conecta con tu objetivo</h2>
+                <p>Recuerda para qué sirve lo que aprendes (ej: "esto me ayudará en mi carrera, a entender mejor el mundo").</p>
+            </div>
+
+	<div class="card">
+	<h2>📈 Progreso >> Perfección</h2>
+	<p>Valora lo que avanzas, no solo lo que te falta. Anota tus logros por pequeños que sean.</p>
+	</div>
+
+	<div class="card">
+        <h2>🏡 Entorno adecuado</h2>
+        <p> Evita distracciones, organiza tu espacio, la comodidad ayuda a mantener el ánimo.</p>
+        </div>
+
+	<div class="card">
+        <h2>⚖️ Descanso y recompensas</h2>
+        <p>Estudia por bloques cortos (ej: 25min estudio + 5min descanso), y premia tu esfuerzo al terminar.</p>
+        </div>
+
+	<div class="card">
+        <h2>🔄 Cambia de enfoque</h2>
+        <p> Si algo te cuesta, no pienses "no puedo", sino "todavía no lo entiendo, voy paso a paso".</p>
+        </div>
+
+</div>
+
+	<div class="seccion-titulo">¿Cuando se pierde la motivación?</div>
+	 <div class="seccion-descripcion">
+            Es muy común, ya que generalmente no están bien apuntados tus objetivos o aparecen trabas por el camino, algunas causas mas comunes suelen ser:
+        </div>
+
+	<div class="grid-factores">
+            <div class="card">
+                <h2>🌫️ La meta es muy grande o poco clara</h2>
+                <p>Si tu meta es muy difícil de alcanzar o muy poco clara, es muy comun perder la motivación</p>
+            </div>
+
+	<div class="card">
+                <h2>🤔 Poco interes o entendimiento del tema</h2>
+                <p>Al no comprender el tema o si te genera poco interés el tema a desarrollar, se genera un bloqueo mental, intenta buscar la parte que te resulte mas interesante el tema.</p>
+            </div>
+
+	<div class="card">
+	<h2>🧱 Bloqueo mental</h2>
+	<p>Es muy comun por todos los temas anteriores que vimos y mencionamos antes, pide ayuda si te atas, los bloqueos matan las ganas.</p>
+	</div>
+</div>
+
+	<div class="seccion-titulo">Aprendizaje</div>
+        <div class="seccion-descripcion">
+            A través del trabajo pudimos notar todos los inconvenientes y problemas que podemos pasar, y lo cual puede estar afectando nuestro rendimiento académico, y que con la gestión de nuestros problemas, diferentes tecnicas de estudio, y la motivación favorece la atención, la comprensión y un mejor rendimiento academico, recuerda, aprender es un proceso, no una carrera.
+        </div>
+
+        <div class="creditos-grupo">by TecnoEduca</div>
+    </div>
+
+</body>
+</html>

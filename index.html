@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoEduca - UTIC</title>
+    <style>
+        :root {
+            --azul-oscuro: #001f3f;
+            --azul-medio: #002855;
+            --azul-boton: #0056b3;
+            --naranja-utic: #ff6600;
+            --blanco-suave: #f1f5f9;
+            --celeste-decorativo: #38bdf8;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--azul-oscuro); 
+            color: #ffffff; 
+            margin: 0; 
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+                    .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+           .contenedor-logos-cabecera {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            width: 100%;                  
+            max-width: 1200px;            
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 30px 40px 0 40px;    
+        }
+
+        .logo-lateral {
+            height: 85px;                
+            width: 160px;                 
+            object-fit: contain;          
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+        }
+
+
+        .header-decorativo {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            width: 100%;
+        }
+
+        .logo-recto-utic {
+            font-family: 'Arial Black', sans-serif; 
+            font-size: 110px;
+            font-weight: 900; 
+            color: #ffffff;
+            letter-spacing: -2px; 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            user-select: none;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .main-container {
+            max-width: 900px;
+            width: 90%;
+            padding-bottom: 30px;
+        }
+
+        h1 { 
+            font-size: 34px; 
+            text-align: center; 
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .subtitulo-blog {
+            text-align: center;
+            color: var(--celeste-decorativo);
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .bloque-equipo-superior {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 2px solid #ffffff; 
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 45px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nombre-grupo-destacado {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff; 
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .lista-integrantes-superior {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .nombre-alumno {
+            font-size: 16px;
+            color: #e2e8f0;
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 4px solid var(--celeste-decorativo);
+            text-align: left;
+        }
+        
+             .grid-mision-vision {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--azul-medio);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease; 
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--celeste-decorativo);
+        }
+        
+        .card h2 { 
+            font-size: 22px; 
+            color: #e0f2fe; 
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .card p { 
+            font-size: 15px; 
+            line-height: 1.7; 
+            text-align: justify;
+            color: var(--blanco-suave);
+            margin: 0;
+        }
+
+        .grid-ventanas-negocio {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .ventana-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-ventana-premium {
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+           .ventana-imagen-wrapper {
+            width: 100%;
+            height: 160px;
+            background-color: rgba(0, 0, 0, 0.4); 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ventana-imagen-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .icono-flotante {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 28px;
+            background: rgba(0, 31, 63, 0.8);
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ventana-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .card-ventana-premium h2 { 
+            font-size: 20px; 
+            color: #ffffff; 
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-ventana-premium p { 
+            font-size: 14px; 
+            line-height: 1.6; 
+            text-align: left;
+            color: #cbd5e1;
+            margin: 0 0 20px 0;
+        }
+
+        .boton-ver-mas {
+            margin-top: auto;
+            color: var(--celeste-decorativo);
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+               .card-ventana-premium:hover {
+            transform: translateY(-10px);
+            border-color: var(--celeste-decorativo); 
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .card-ventana-premium:hover .ventana-imagen-wrapper img {
+            transform: scale(1.08); 
+        }
+
+        .card-ventana-premium:hover h2 {
+            color: var(--celeste-decorativo);
+        }
+
+
+        .card-ventana-premium:hover .boton-ver-mas {
+            transform: translateX(5px);
+        }
+        
+        .seccion-accion { 
+            text-align: center; 
+            margin-top: 50px; 
+            padding-top: 30px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15); 
+        }
+
+        .texto-adicional {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        
+        .boton-utic { 
+            display: inline-block;
+            background-color: var(--azul-boton);  
+            color: #ffffff;             
+            font-size: 16px;
+            font-weight: bold; 
+            text-decoration: none;      
+            padding: 14px 35px;         
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+            transition: all 0.3s ease; 
+        }
+        
+        .boton-utic:hover {
+            background-color: var(--naranja-utic);  
+            transform: scale(1.04); 
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .creditos-grupo {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            letter-spacing: 1px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+	.imagen-enciclopedia {
+    object-fit: contain !important;
+    transform: scale(1.35);
+    filter: drop-shadow(0 5px 12px rgba(0,0,0,0.5));
+}
+
+        @media (max-width: 768px) {
+            .grid-mision-vision, .grid-ventanas-negocio { 
+                grid-template-columns: 1fr; 
+            }
+            .lista-integrantes-superior { 
+                grid-template-columns: 1fr; 
+            }
+            .logo-recto-utic {
+                font-size: 80px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">FACULTAD TECNOLÓGICA INTERCONTINENTAL &bull; UTIC</div>
+
+    <div class="contenedor-logos-cabecera">
+        <img src="logo-utic.webp" alt="Logo UTIC" class="logo-lateral">
+        <img src="tecnoeduca.jpeg" alt="Logo Grupo" class="logo-lateral">
+    </div>
+
+    <div class="header-decorativo" style="padding-top: 10px;">
+        <h1 class="logo-recto-utic">UTIC</h1>
+    </div>
+
+
+    <div class="main-container">
+        <h1>Universidad Tecnológica Intercontinental</h1>
+        <div class="subtitulo-blog">Análisis de Sistemas Informáticos</div>
+
+        <div class="bloque-equipo-superior">
+            <div class="nombre-grupo-destacado">GRUPO: TECNOEDUCA</div>
+            <div class="lista-integrantes-superior">
+                <div class="nombre-alumno">👤 Fátima Soledad Alegria Sosa</div>
+                <div class="nombre-alumno">👤 Margarita Cristina Ramseier</div>
+                <div class="nombre-alumno">👤 Lucas Emmanuel Peralta Cardozo</div>
+                <div class="nombre-alumno">👤 Pablo David Rios Pereira</div>
+            </div>
+        </div>
+
+        <div class="grid-mision-vision">
+            <div class="card">
+                <h2>🎯 Misión</h2>
+                <p>Formar profesionales éticos e innovadores mediante una educación de calidad apoyada en las nuevas tecnologías y comprometida con el desarrollo continuo de la sociedad.</p>
+            </div>
+
+            <div class="card">
+                <h2>👁️ Visión</h2>
+                <p>Ser una universidad emprendedora, acreditada e internacional que impulsa el crecimiento del país y ofrece profesionales líderes con altos estándares de calidad.</p>
+            </div>
+        </div>
+
+        <div class="grid-ventanas-negocio">
+            
+            <a href="factores.html" class="ventana-link">
+                <div class="card-ventana-premium">
+                    <div class="ventana-imagen-wrapper">
+                        <img src="rendimiento_academico.jpg" alt="Rendimiento Académico">
+                        <div class="icono-flotante">📊</div>
+                    </div>
+                    <div class="ventana-info">
+                        <h2>Rendimiento Académico</h2>
+                        <p>Aqui podras ver nuestra investigación y nuestra opinion sobre los factores personales, escolares y sociales que influyen directamente en el éxito educativo, junto con metodologías de estudio para los estudiantes.</p>
+                        <div class="boton-ver-mas">Ingresar al módulo &rarr;</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="resumen.html" class="ventana-link">
+                <div class="card-ventana-premium">
+                    <div class="ventana-imagen-wrapper">
+                        <img src="cloud_computing.jpg" alt="Cloud Computing y Seguridad">
+                        <div class="icono-flotante">📚</div>
+                    </div>
+                    <div class="ventana-info">
+                        <h2>Resumen del Libro "Cloud computing y seguridad"</h2>
+                        <p>Aqui podras acceder a nuestro analisis del libro, las ventajas y riesgos, los modelos de servicio y la forma en la que se protege la información.</p>
+                        <div class="boton-ver-mas">Leer análisis &rarr;</div>
+                    </div>
+                </div>
+            </a>
+
+	<a href="resumen_enciclopedia.html" class="ventana-link">
+                <div class="card-ventana-premium">
+                    <div class="ventana-imagen-wrapper">
+                        <img src="enciclopedia.jpg" alt="Resumen del Libro" class="imagen-enciclopedia">
+                        <div class="icono-flotante">📚</div>
+                    </div>
+                    <div class="ventana-info">
+                        <h2>Resumen del Libro "Enciclopedia en la hoguera"</h2>
+                        <p>Accedé al análisis detallado, las ideas centrales y el desglose de los capítulos más importantes de nuestra lectura recomendada.</p>
+                        <div class="boton-ver-mas">Leer análisis &rarr;</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="seccion-accion">
+            <div class="texto-adicional">Para cualquier información adicional que requiera:</div>
+            <a href="http://utic.edu.py" target="_blank" rel="noopener" class="boton-utic">Acceda aquí</a>
+        </div>
+
+        <div class="creditos-grupo">by TecnoEduca</div>
+    </div> 
+
+</body>
+</html>
