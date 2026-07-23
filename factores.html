@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendimiento Académico - TecnoEduca</title>
+	<link rel="icon" type="image/jpeg" href="tecnoeduca.jpeg">
     <style>
         :root {
             --azul-oscuro: #001f3f;
@@ -24,6 +25,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden; /* Evita que la pantalla baile hacia los lados */
         }
         
         .navbar {
@@ -37,7 +39,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-	.contenedor-logos-cabecera {
+        .contenedor-logos-cabecera {
             display: flex;
             justify-content: space-between; 
             align-items: center;
@@ -62,11 +64,11 @@
         }
 
         .header-navegacion {
- 	   text-align: center;
-  	   margin-bottom: 30px;
- 	   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	    padding-bottom: 20px;
-	}
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
 
         h1 { 
             font-size: 32px; 
@@ -103,20 +105,14 @@
             margin-bottom: 40px;
         }
 
-        .grid-factores .card:nth-child(5):last-child {
-            grid-column: span 2;
+        /* Nueva clase inteligente para centrar las últimas tarjetas sin romper la grilla */
+        .card-centrada {
+            grid-column: 1 / -1;
             max-width: 500px;
-            margin: 0 auto;
+            justify-self: center;
             width: 100%;
-            box-sizing: border-box;
         }
 
-	.grid-factores .card:nth-child(3):last-child {
-    grid-column: span 2;
-    max-width: 500px;
-    margin: 0 auto;
-    width: 100%;
-}
         .grid-tecnicas {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -191,8 +187,7 @@
             .grid-factores, .grid-tecnicas { 
                 grid-template-columns: 1fr; 
             }
-            .grid-factores .card:nth-child(5):last-child {
-                grid-column: span 1;
+            .card-centrada {
                 max-width: 100%;
             }
             .header-navegacion {
@@ -213,7 +208,7 @@
 
     <div class="navbar">FACULTAD TECNOLÓGICA INTERCONTINENTAL &bull; UTIC</div>
 
-	 <div class="contenedor-logos-cabecera">
+    <div class="contenedor-logos-cabecera">
         <img src="logo-utic.webp" alt="Logo UTIC" class="logo-lateral">
         <img src="tecnoeduca.jpeg" alt="Logo Grupo" class="logo-lateral">
     </div>
@@ -222,7 +217,6 @@
         
         <div class="header-navegacion">
             <h1>Rendimiento Académico</h1>
-            
         </div>
 
         <div class="seccion-titulo" style="margin-top: 20px;">Factores del rendimiento académico</div>
@@ -250,7 +244,8 @@
                 <p>Son las relaciones con otras personas y el entorno. Los amigos pueden actuar de forma positiva motivando a estudiar, o por el contrario, distraer y afectar negativamente el rendimiento.</p>
             </div>
 
-            <div class="card">
+            <!-- Aplicada la clase card-centrada -->
+            <div class="card card-centrada">
                 <h2>💸 Elementos Económicos</h2>
                 <p>Son los recursos monetarios disponibles para el estudio. Si se carece de ellos o se debe trabajar excesivas horas, se presentan mayores dificultades para rendir bien debido al desgaste emocional y al estrés laboral.</p>
             </div>
@@ -296,80 +291,80 @@
             Es el motor que te hace empezar, seguir y superar dificultades al estudiar, existen diferentes tipos de motivación:
         </div>
 
-	<div class="grid-factores">
+                <div class="grid-factores">
             <div class="card">
                 <h2>💡 Motivación intrínseca</h2>
-                <p>La mejor y más duradera, estudias por interés propio, curiosidad, o satisfacción de aprender. Ej:Me gusta entender las matemáticas.</p>
+                <p>La mejor y más duradera, estudias por interés propio, curiosidad, o satisfacción de aprender. Ej: Me gusta entender las matemáticas.</p>
             </div> 
             <div class="card">
                 <h2>⚠️ Motivación extrínseca</h2>
-                <p>Por recompensas externas o evitar consecuencias. Ej:Aprobar el examen, nota alta, ayuda al principio pero no dura mucho por sí sola.</p>
+                <p>Por recompensas externas o evitar consecuencias. Ej: Aprobar el examen, nota alta, ayuda al principio pero no dura mucho por sí sola.</p>
             </div>
-</div>
-
-	<div class="seccion-titulo">Como aumentar la motivación</div>
-	 <div class="seccion-descripcion">
-            Si bien la motivación es algo efímero y poco duradero, es un empujon que ayuda mucho, por lo cual mencionaremos buenas maneras para aumentar y mantener la motivación:
         </div>
 
-	<div class="grid-factores">
+        <div class="seccion-titulo">Como aumentar la motivación</div>
+        <div class="seccion-descripcion">
+            Si bien la motivación es algo efímero y poco duradero, es un empujón que ayuda mucho, por lo cual mencionaremos buenas maneras para aumentar y mantener la motivación:
+        </div>
+
+        <div class="grid-factores">
             <div class="card">
                 <h2>🎯 Metas claras y pequeñas</h2>
                 <p>En lugar de "estudiar trigonometría", pon "resolver 5 ejercicios de senos hoy". Al cumplirlas, tu cerebro libera satisfacción.</p>
             </div>
 
-	<div class="card">
+            <div class="card">
                 <h2>🧭 Conecta con tu objetivo</h2>
                 <p>Recuerda para qué sirve lo que aprendes (ej: "esto me ayudará en mi carrera, a entender mejor el mundo").</p>
             </div>
 
-	<div class="card">
-	<h2>📈 Progreso >> Perfección</h2>
-	<p>Valora lo que avanzas, no solo lo que te falta. Anota tus logros por pequeños que sean.</p>
-	</div>
+            <div class="card">
+                <h2>📈 Progreso >> Perfección</h2>
+                <p>Valora lo que avanzas, no solo lo que te falta. Anota tus logros por pequeños que sean.</p>
+            </div>
 
-	<div class="card">
-        <h2>🏡 Entorno adecuado</h2>
-        <p> Evita distracciones, organiza tu espacio, la comodidad ayuda a mantener el ánimo.</p>
+            <div class="card">
+                <h2>🏡 Entorno adecuado</h2>
+                <p>Evita distracciones, organiza tu espacio, la comodidad ayuda a mantener el ánimo.</p>
+            </div>
+
+            <div class="card">
+                <h2>⚖️ Descanso y recompensas</h2>
+                <p>Estudia por bloques cortos (ej: 25min estudio + 5min descanso), y premia tu esfuerzo al terminar.</p>
+            </div>
+
+            <div class="card">
+                <h2>🔄 Cambia de enfoque</h2>
+                <p>Si algo te cuesta, no pienses "no puedo", sino "todavía no lo entiendo, voy paso a paso".</p>
+            </div>
         </div>
 
-	<div class="card">
-        <h2>⚖️ Descanso y recompensas</h2>
-        <p>Estudia por bloques cortos (ej: 25min estudio + 5min descanso), y premia tu esfuerzo al terminar.</p>
+        <div class="seccion-titulo">¿Cuando se pierde la motivación?</div>
+        <div class="seccion-descripcion">
+            Es muy común, ya que generalmente no están bien apuntados tus objetivos o aparecen trabas por el camino, algunas causas más comunes suelen ser:
         </div>
 
-	<div class="card">
-        <h2>🔄 Cambia de enfoque</h2>
-        <p> Si algo te cuesta, no pienses "no puedo", sino "todavía no lo entiendo, voy paso a paso".</p>
-        </div>
-
-</div>
-
-	<div class="seccion-titulo">¿Cuando se pierde la motivación?</div>
-	 <div class="seccion-descripcion">
-            Es muy común, ya que generalmente no están bien apuntados tus objetivos o aparecen trabas por el camino, algunas causas mas comunes suelen ser:
-        </div>
-
-	<div class="grid-factores">
+        <div class="grid-factores">
             <div class="card">
                 <h2>🌫️ La meta es muy grande o poco clara</h2>
-                <p>Si tu meta es muy difícil de alcanzar o muy poco clara, es muy comun perder la motivación</p>
+                <p>Si tu meta es muy difícil de alcanzar o muy poco clara, es muy común perder la motivación</p>
             </div>
 
-	<div class="card">
-                <h2>🤔 Poco interes o entendimiento del tema</h2>
-                <p>Al no comprender el tema o si te genera poco interés el tema a desarrollar, se genera un bloqueo mental, intenta buscar la parte que te resulte mas interesante el tema.</p>
+            <div class="card">
+                <h2>🤔 Poco interés o entendimiento del tema</h2>
+                <p>Al no comprender el tema o si te genera poco interés el tema a desarrollar, se genera un bloqueo mental, intenta buscar la parte que te resulte más interesante el tema.</p>
             </div>
 
-	<div class="card">
-	<h2>🧱 Bloqueo mental</h2>
-	<p>Es muy comun por todos los temas anteriores que vimos y mencionamos antes, pide ayuda si te atas, los bloqueos matan las ganas.</p>
-	</div>
-</div>
+            <!-- Aplicada la clase card-centrada para evitar el error visual en móviles -->
+            <div class="card card-centrada">
+                <h2>🧱 Bloqueo mental</h2>
+                <p>Es muy común por todos los temas anteriores que vimos y mencionamos antes, pide ayuda si te atas, los bloqueos matan las ganas.</p>
+            </div>
+        </div>
 
-	<div class="seccion-titulo">Aprendizaje</div>
+        <div class="seccion-titulo">Aprendizaje</div>
         <div class="seccion-descripcion">
-            A través del trabajo pudimos notar todos los inconvenientes y problemas que podemos pasar, y lo cual puede estar afectando nuestro rendimiento académico, y que con la gestión de nuestros problemas, diferentes tecnicas de estudio, y la motivación favorece la atención, la comprensión y un mejor rendimiento academico, recuerda, aprender es un proceso, no una carrera.
+            A través del trabajo pudimos notar todos los inconvenientes y problemas que podemos pasar, y lo cual puede estar afectando nuestro rendimiento académico, y que con la gestión de nuestros problemas, diferentes técnicas de estudio, y la motivación favorece la atención, la comprensión y un mejor rendimiento académico, recuerda, aprender es un proceso, no una carrera.
         </div>
 
         <div class="creditos-grupo">by TecnoEduca</div>
@@ -377,3 +372,4 @@
 
 </body>
 </html>
+
